@@ -31,7 +31,6 @@ def get_next_letter(letter: str) -> str:
 
 def get_movies_files() -> List[Path]:
     movie_files = []
-    movie_files.extend(get_video_files_from_folder("/home/mato/"))  # TODO remove me
     movie_files.extend(get_video_files_from_folder("/home/davidf/HDD/movies/"))
     movie_files.extend(get_video_files_from_folder("/home/davidf/HDD1/"))
     movie_files.extend(get_video_files_from_folder("/home/davidf/HDD2/movies/"))
