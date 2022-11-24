@@ -20,11 +20,13 @@ path1 = glob.glob('/home/davidf/HDD1/**/*', recursive=True)
 path2 = glob.glob('/home/davidf/HDD2/movies/**/*', recursive=True)
 path_series = glob.glob('/home/davidf/HDD2/series/*')
 
+
 def media_getter(path):
     for f in path:
         p = Path(f)
         if p.suffix in [".mkv", ".avi", ".mp4", ".mpeg4"]:
             list_media.append([p.name])
+
 
 def series_getter(path):
     for f in path:
@@ -38,11 +40,13 @@ def series_getter(path):
             if p.suffix in [".mkv", ".avi", ".mp4", ".mpeg4"]:
                 list_media.append([p.name])
 
+
 def list_sorter(list_to_sort):
     names = [a[0] for a in list_to_sort]
     names.sort()
     sorted_list_media = [[a] for a in names]
     return sorted_list_media
+
 
 def main():
     try:
@@ -58,7 +62,8 @@ def main():
         }
 
         service.spreadsheets().values().clear(spreadsheetId=spreadsheet_id, range=range_name_series).execute()
-        service.spreadsheets().values().update(spreadsheetId=spreadsheet_id, range=range_name_series, body=resource_series, valueInputOption="USER_ENTERED").execute()
+        service.spreadsheets().values().update(spreadsheetId=spreadsheet_id, range=range_name_series,
+                                               body=resource_series, valueInputOption="USER_ENTERED").execute()
 
         # movies getter
         list_media.clear()
@@ -72,9 +77,11 @@ def main():
             "values": sorted_list_media
         }
         service.spreadsheets().values().clear(spreadsheetId=spreadsheet_id, range=range_name_movies).execute()
-        service.spreadsheets().values().update(spreadsheetId=spreadsheet_id, range=range_name_movies, body=resource_movies, valueInputOption="USER_ENTERED").execute()
+        service.spreadsheets().values().update(spreadsheetId=spreadsheet_id, range=range_name_movies,
+                                               body=resource_movies, valueInputOption="USER_ENTERED").execute()
     except HttpError as err:
         print(err)
+
 
 if __name__ == '__main__':
     main()
