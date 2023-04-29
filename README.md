@@ -1,5 +1,8 @@
 # Sync movies
 
+This application just lists choosen directories from device and put result on google sheets file.
+For example listing more directories with movies into one list.
+
 First install dependencies:
 
 ```
