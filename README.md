@@ -1,7 +1,6 @@
 # Sync movies
 
-This application just lists choosen directories from device and put result on google sheets file.
-For example listing more directories with movies into one list.
+This application lists selected directories from the device and puts the results into a Google Sheets file. For example, it can list multiple directories containing movies and consolidate them into one list.
 
 First install dependencies:
 
